@@ -5,9 +5,16 @@ import com.example.angpao.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+    // GET /products
+    // GET /products/id
+    // POST /products
+    // PUT /products/id
+    // DELETE /products/id
+
     @Autowired
     private ProductRepository productRepository;
 
@@ -36,7 +43,7 @@ public class ProductController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public void deleteProduct(@PathVariable String id){
+    public void deleteProduct(@PathVariable String id) {
         productRepository.deleteById(id);
     }
 
